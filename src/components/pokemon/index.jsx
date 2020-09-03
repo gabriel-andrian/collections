@@ -3,12 +3,16 @@ import axios from "axios";
 import CharactersList from "../characters-list";
 import { useParams, useHistory } from "react-router-dom";
 import { notification } from "antd";
+import { useSelector, useDispatch } from "react-redux";
+import { add } from "../../redux/actions";
 
-const CharactersPokemon = ({ collections, setCollections }) => {
+const CharactersPokemon = () => {
   const [characters, setCharacters] = useState([]);
   const { page } = useParams();
   const history = useHistory();
 
+  const collections = useSelector((state) => state.characters);
+  const dispatch = useDispatch();
   const handleOnSelect = (characterSelected) => {
     if (
       !collections.some(
@@ -22,7 +26,7 @@ const CharactersPokemon = ({ collections, setCollections }) => {
         message: "Sucess!",
         description: `${characterSelected.name} was added to the collection!`,
       });
-      return setCollections([...collections, ...[characterSelected]]);
+      return dispatch(add(characterSelected));
     }
     return notification.error({
       placement: "bottomRight",
@@ -50,10 +54,8 @@ const CharactersPokemon = ({ collections, setCollections }) => {
             image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
           });
         });
-        debugger;
         setCharacters(pokemons);
-      })
-      .catch((error) => console.log(error));
+      });
   }, [history, page]);
   return <CharactersList characters={characters} onSelect={handleOnSelect} />;
 };

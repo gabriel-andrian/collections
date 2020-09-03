@@ -1,8 +1,10 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
 import { DivStyled } from "../components/styled-components";
+import { useSelector } from "react-redux";
 
-const Chart = ({ collections }) => {
+const Chart = () => {
+  const collections = useSelector((state) => state.characters);
   const colletionsData = collections.reduce((current, { type }) => {
     current[type] ? (current[type] += 1) : (current[type] = 1);
     return current;

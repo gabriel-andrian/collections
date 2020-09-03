@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import CharactersList from "../components/characters-list";
 import { DivStyled, StyledSelec } from "../components/styled-components";
 import { notification, TreeSelect } from "antd";
-
+import { useSelector, useDispatch } from "react-redux";
+import { remove } from "../redux/actions";
 const treeData = [
   {
     title: "All Collection",
@@ -18,14 +19,13 @@ const treeData = [
   },
 ];
 
-const Home = ({ collections, setCollections }) => {
+const Home = () => {
+  const collections = useSelector((state) => state.characters);
+  const dispatch = useDispatch();
   const [filterCollection, setFilterCollection] = useState([]);
   const handleOnSelect = (characterSelected) => {
-    setCollections(
-      collections.filter((character) => {
-        return !(character.name === characterSelected.name);
-      })
-    );
+    dispatch(remove(characterSelected));
+
     notification.success({
       placement: "bottomRight",
       duration: 2.5,

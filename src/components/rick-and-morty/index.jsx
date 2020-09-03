@@ -4,13 +4,17 @@ import CharactersList from "../characters-list";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { StyledControl } from "./styled";
 import { notification } from "antd";
+import { useSelector, useDispatch } from "react-redux";
+import { add } from "../../redux/actions";
 
-const CharactersRickMorty = ({ collections, setCollections }) => {
+const CharactersRickMorty = () => {
   const [characters, setCharacters] = useState([]);
   const [nextURL, setNextURL] = useState(
     "https://rickandmortyapi.com/api/character/"
   );
 
+  const collections = useSelector((state) => state.characters);
+  const dispatch = useDispatch();
   const history = useHistory();
   const { page } = useParams();
 
@@ -27,7 +31,7 @@ const CharactersRickMorty = ({ collections, setCollections }) => {
         message: "Sucess!",
         description: `${characterSelected.name} was added to the collection!`,
       });
-      return setCollections([...collections, ...[characterSelected]]);
+      return dispatch(add(characterSelected));
     }
     return notification.error({
       placement: "bottomRight",

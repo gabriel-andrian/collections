@@ -4,20 +4,17 @@ import CharactersPage from "../pages/characters";
 import Home from "../pages/home";
 import Chart from "../pages/chart";
 
-const Routers = ({ collections, setCollections }) => {
+const Routers = () => {
   return (
     <Switch>
       <Route path="/home">
-        <Home collections={collections} setCollections={setCollections} />
+        <Home />
       </Route>
       <Route path="/chart">
-        <Chart collections={collections} />
+        <Chart />
       </Route>
       <Route path="/characters/:page">
-        <CharactersPage
-          collections={collections}
-          setCollections={setCollections}
-        />
+        <CharactersPage />
       </Route>
     </Switch>
   );
