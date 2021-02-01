@@ -11,7 +11,7 @@ const CharactersList = ({ characters, onSelect = () => {} }) => {
         <MotionDiv
           initial={{ scale: 0 }}
           animate={{ scale: 1.0 }}
-          transition={{ duration: 1.3 }}
+          transition={{ duration: 1.2 }}
           whileHover={{ scale: 0.9 }}
           whileTap={{ scale: 0 }}
         >

@@ -50,6 +50,9 @@ export const StyledButton = styled.button`
   outline: none;
   text-align: center;
   width: 200px;
+  :hover{
+    cursor: pointer;
+  }
 `;
 
 export const StyledSelec = styled.div`

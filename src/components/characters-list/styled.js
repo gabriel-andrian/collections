@@ -14,6 +14,11 @@ export const StyledCard = styled(Card)`
   padding: 10px;
   border-radius: 15px;
   border: 2px solid black;
+  :hover{
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
 
   img {
     border-radius: 5px;
