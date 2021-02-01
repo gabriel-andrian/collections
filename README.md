@@ -14,10 +14,10 @@
 </div>
 
 <p align="center">
- <a href="#💻-projeto">Projeto</a> •
- <a href="#🚀-começando">Começando</a> •
- <a href="#🛠-tecnologias">Tecnologias</a> •  
- <a href="#👨🏽‍💻-autor">Autor</a>
+ <a href="#-projeto">Projeto</a> •
+ <a href="#-começando">Começando</a> •
+ <a href="#-tecnologias">Tecnologias</a> •  
+ <a href="#-autor">Autor</a>
 </p>
 
 # 💻 Projeto
